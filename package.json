@@ -2,7 +2,7 @@
   "name": "@amanaqil/atm",
   "version": "2.0.1",
   "description": "this is a atm machine",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "publishConfig": {
     "access": "public"
