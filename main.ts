@@ -54,10 +54,8 @@ if (pinAnswer.pin === myPin) {
            
            myBalance -= amountAns.amount;
            console.log("your remaining balance is:" + myBalance)
-           if (amountAns> myBalance) {
-            
-           } 
-           else {
+           if (amountAns.amount> myBalance) 
+           {
             console.log("Insufficient Balance")
             
            }
