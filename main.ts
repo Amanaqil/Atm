@@ -19,31 +19,49 @@ let pinAnswer = await inquirer.prompt(
 if (pinAnswer.pin === myPin) {
     console.log("Correct pin code!!!");
 
+
   let operationAns = await  inquirer.prompt(
         [
+            {name:"account type",
+            message:"select your account type",
+            type: "list",
+            choices:[
+                "Current Account",
+                "Savings Account",
+            ]
+            
+            },
             {
                 name:"operation",
                 message:"please select option",
                 type:"list",
-                choices:["withdraw","checkbalacnce"]
+                choices:["Cash withdraw","check balance"]
 
         }
     ]
     );
 
     console.log(operationAns);
-    if (operationAns.operation === "withdraw") {
+    if (operationAns.operation === "Cash withdraw") {
         let amountAns = await inquirer.prompt(
             [
                 {
                     name: "amount",
-                    message:"enter your amount",
-                    type:"number"
+                    message:"Enter the amount you want to withdraw",
+                    type:"number",
                 }
             ]);
            
            myBalance -= amountAns.amount;
            console.log("your remaining balance is:" + myBalance)
+           if (amountAns> myBalance) {
+            
+           } 
+           else {
+            console.log("Insufficient Balance")
+            
+           }
+
 
     } else if (operationAns.operation === "check balance"){
         console.log("your balance is: "+myBalance)
